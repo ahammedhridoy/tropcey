@@ -10,24 +10,191 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: 'black';
+  background: 'white';
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 48px;
+  padding-right: 48px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.image-wrapper {
+  position: relative;
+  display: inline-block; /* Make this a block to scale as a unit */
+  transition: transform 1s ease;
+  width: 60vw;
+}
+.image-wrapper img {
+  display: block; /* Ensures there's no extra space inside the wrapper */
+  max-width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+.marker {
+  transition: transform 0.5s ease-in-out;
+}
+
+.marker:hover {
+  transform: scale(1.2);
+}
+
+
+.marker {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.marker img {
+  position: absolute;
+  z-index: 0;
+}
+.side-img {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.top-container {
+  padding-left: 48px;
+  padding-right: 48px;
+  height: 100vh;
+  width: 100vw;
+}
+.landing-left {
+  width: 60%;
+}
+.landing-right {
+  width: 35%;
+}
+.landing-left img {
+
+}
+
+.come-in {
+  transform: translateX(100vw) translateY(50vw);
+  transition: transform 1s ease-in;
+}
+
+.zoom-effect {
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  transform: scale(5); /* Adjust scale as needed */
+  transition: transform 1s ease-in-out;
+}
+
+#canvas
+{
+  width: 100%;
+  height: 100%;
+}
+
+
+@keyframes fadeInBlurOut {
+  0% {
+    opacity: 0;
+    filter: blur(100px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes smallToBig {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(25px);
+    transform: scale(4);
+  }
+}
+
+.initial-zoom {
+  /* display: block;
+  transform: scale(4);
+  left: 50%;
+  top: 70%;
+  opacity: 0.5;
+  filter: blur(10000px);
+  transition: transform 1s ease-out, 
+              opacity 1s ease-out 1s, 
+              filter 1s ease-out 1s; */
+              animation: smallToBig 1s ease-in forwards;
+}
+
+.bigImg {
+  transform: scale(2);
+  transition: transform 1s ease-in-out,
+}
+
+.initial-zoom .end-state {
+  filter: blur(10000px);
+  opacity: 0; 
+}
+.center-and-zoom {
+  position: fixed;
+  left: 0;
+  top: initial;
+  transform: translateX(0) translateY(0) scale(-0.5);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+.from-top {
+  transform: translateX(-100vw) translateY(-50vh); /* Start from above the screen */
+  transition: transform 1s ease-out; /* Animation to bring it into position */
+}
+.to-normal-position {
+  animation: fadeInBlurOut 1s ease-in forwards;
+}
+
+@keyframes fadeInZoomOut {
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate3d(0vw, 0vh, 100vh) scale(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(100px);
+    transform: translate3d(0vw, 0vh, 1000vh) scale(2);
+  }
+}
+.zoom-out {
+  animation: fadeInZoomOut 1s ease-in forwards;
+}
+
+
+.remove {
+  display: none;
+}
+@layer utilities {
+  
 }
