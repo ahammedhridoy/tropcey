@@ -17,17 +17,17 @@ const ProductDetails = ({ labels, life, storage, ingredient, labelFooter } : any
         <div>
           <div className="flex space-x-4">
             {labels.map((label : any, index : number) => (
-              <div key={index} className="bg-[#0a2847] w-[112px] h-[112px] rounded-full flex justify-center items-center">
-                <div className='bg-white w-[104px] h-[104px] rounded-full flex justify-center items-center'>
-                  <div className="bg-[#0a2847] w-[96px] h-[96px] rounded-full flex justify-center items-center font-black overflow">
-                    {label.length < 8 ? label : <div className='flex-col justify-center items-center '>
+              <div key={index} className="bg-[#0a2847] w-[92px] h-[92px] rounded-full flex justify-center items-center">
+                <div className='bg-white w-[84px] h-[84px] rounded-full flex justify-center items-center text-center flex'>
+                  <div className="bg-[#0a2847] w-[76px] h-[76px] rounded-full flex justify-center items-center font-black overflow">
+                    {label.length < 8 ? label : <div className='flex-col justify-center items-center text-center flex'>
                       {
                         label === 'NO PRESERVATIVE' ? <>
-                        <p className='text-lg text-center'>No</p>
-                        <p className='text-[10px] text-center '>PRESERVATIVE</p>
+                        <p className='text-[12px] text-center flex justify-center'>No</p>
+                        <p className='text-[8px] text-center flex justify-center'>PRESERVATIVE</p>
                         </> : <>
-                        <p className='text-[10px] text-center'>{getFirstString(label)}</p>
-                        <p className='text-lg text-center '>{label.split(" ")[label.split(" ").length - 1]}</p>
+                        <p className='text-[8px] text-center flex justify-center'>{getFirstString(label)}</p>
+                        <p className='text-[12px] text-center flex justify-center'>{label.split(" ")[label.split(" ").length - 1]}</p>
                         </>
                       }
                     </div>}
@@ -41,9 +41,9 @@ const ProductDetails = ({ labels, life, storage, ingredient, labelFooter } : any
           </div> : null }
         </div>
         <div className="text-left ml-10">
-          <div className="text-sm text-black text-left mb-2"><h4><strong className='text-black font-black'>Shelf Life</strong></h4> <h5>{life}</h5></div>
-          <div className="text-sm text-black text-left mb-2"><h4><strong className='text-black font-black'>Storage</strong></h4> <h5>{storage}</h5></div>
-          <div className="text-sm text-black text-left mb-2"><h4><strong className='text-black font-black'>Ingredient</strong></h4> <h5>{ingredient}</h5></div>
+          <div className="text-sm text-black text-left mb-1"><h4><strong className='text-black font-black'>Shelf Life</strong></h4> <h5>{life}</h5></div>
+          <div className="text-sm text-black text-left mb-1"><h4><strong className='text-black font-black'>Storage</strong></h4> <h5>{storage}</h5></div>
+          <div className="text-sm text-black text-left mb-1"><h4><strong className='text-black font-black'>Ingredient</strong></h4> <h5>{ingredient}</h5></div>
         </div>
       </div>
     </div>

@@ -1,25 +1,48 @@
+"use client"
 import Background from '@/components/Background'
 import LeftContainer from '@/components/LeftContainer';
 import RightTextBox from '@/components/RightTextBox';
 import { data } from '@/data/pages';
-import React from 'react'
+import Link from 'next/link';
+import React, { useEffect, useRef } from 'react'
 
-async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
+const Page: React.FC<{ searchParams: { [key: string]: string } }> = ({ searchParams }) => {
   const hash = searchParams;
 
-  if(typeof window !== 'undefined') {}
+  const AnimRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (AnimRef.current) {
+      setTimeout(() => {
+        AnimRef.current.classList.add('to-normal-position');
+      }, 10); 
+    }
+    if(typeof window !== 'undefined') {
+      localStorage.setItem('lastUrl', '/sugar')
+      localStorage.setItem('lastPage', 'sugar')
+    }
+  }, []);
 
   const chip = data?.sugar;
 
   return (
-    <div>
+    <div ref={AnimRef}>
       <Background leftSrc={chip.backgroundImage.left} RightSrc={chip.backgroundImage.right} />
       <div className='relative text-white flex justify-between h-[100vh] w-[100%] items-center z-10'>
-        <LeftContainer imgSrc={chip.imgUri} brandingSubtitle={chip.brandingSubtitle}/>
+        <LeftContainer imgSrc={chip.imgUri} brandingSubtitle={chip.brandingSubtitle} width={350}/>
         <RightTextBox details={chip}/>
       </div>
+      <Link href="/?back=true">
+          <img 
+            src="/Icons/close.svg" 
+            alt="Close" 
+            width={40}
+            className="absolute top-4 right-4 cursor-pointer z-20" 
+            onClick={() => console.log('Close button clicked')} 
+          />
+        </Link>
     </div>
   )
 }
 
-export default page
+export default Page

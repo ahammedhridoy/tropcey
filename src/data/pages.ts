@@ -49,13 +49,13 @@ export const data = {
   },
   'sugar': {
     id: '1',
-    name: 'chip',
+    name: 'sugar',
     imgUri: '/images/background/Sugar page Final-05.png',
     background: {
       left: '',
       right: ''
     },
-    title: "Coconut Chips",
+    title: "Coconut Sugar",
     subTitle: "Baked Chips",
     description: 'Tropcey Coconut Chips are made by 100% natural coconut meat with absolutely no additives or preservatives. These chips taste great and add a delightful crunchy coconut texture and flavour to everyday recipes.',
     table: {
@@ -111,7 +111,7 @@ export const data = {
   'milk': {
     id: '5',
     name: 'flour',
-    imgUri: '/images/home/Green Chips-02.png',
+    imgUri: '/images/Milk/Milk 3-03.png',
     title: "Coconut Milk",
     subTitle: "",
     description: 'Tropcey Coconut Milk is a 100% natural product made from fresh white kernel of mature coconuts. The cream-white milk is ideal',
@@ -126,6 +126,10 @@ export const data = {
     storage: 'In a cool dry place. Once opened keep refrigerated and consume within 48 hours.',
     ingredient: 'Coconut Kernel Extract, Water, Guar Gum.',
     label: ['GLUTEN FREE', 'NO preservative'],
+    background: {
+      left: '/images/Milk/back-10.png',
+      right:  '/images/Milk/back-09.png',
+    },
   },
   'spread': {
     id: '7',
@@ -177,10 +181,49 @@ export const data = {
       },
     ]
   },
-  'dessicated': {},
-  'trecale': {
+  'dessicated': {
+    id: '19',
+    name: 'dessicated',
+    imgUri: '/images/Dessicated/Desicated coconut Page-10 (1).png',
+    title: "Desiccated Coconut",
+    brandingSubtitle: "",
+    subTitle: "Fine Grade",
+    description: 'Tropcey Desiccated Coconut is 100% natural co conutand rich in lauric acid, is derived from fresh coconut via a cold press process. It will give your dishes a natural colour, aroma and flavour.',
+    table: {
+      header: ['Packaging', 'Units per carton', 'Cartons per palle', 'Units per 20ft container', 'Units per 40ft container'],
+      row: [
+        ['500g stand up pouch', '24', '72', '17280', '34560'],
+        ['1kg stand up pouch', '4', '200', '8000', '16000'],
+        ['25kg craft paper bag', '', '4', '40', '80'],
+      ]
+    },
+    life: '12 Months',
+    storage: 'In a cool dry place, away from direct sunlight.',
+    ingredient: '100% cold pressed virgin coconut oil. Red Chili extract.',
+    label: ['VEGAN', 'NO PRESERVATIVE', 'COLD PRESSED'],
+    labelFooter: " if it is solidified, it can be softened by placing it in a bowl of hot water.",
+    mainImage: {
+      sizeW: 400,
+      sizeH: ''
+    },
+    background: {
+      left: '/images/Dessicated/Desicated coconut Page-04.png',
+      right:  '/images/Dessicated/Desicated coconut Page-03.png',
+    },
+    recommendations: [
+      {
+        url: "/images/Dessicated/Desicated coconut Page-06.png",
+        click: "/dessicated"
+      },
+      {
+        url: "/images/Dessicated/Desicated coconut Page-07.png",
+        click: "/dessicated"
+      }
+    ]
+  },
+  'treacle': {
     id: '8',
-    name: 'trecale',
+    name: 'treacle',
     imgUri: '/images/Treacle Page/Treacle Page Final-05.png',
     mainImage: {
       sizeW: 300,
@@ -934,3 +977,15 @@ export const data = {
     ]
   },
 }
+
+export const order = [
+ "oil",
+ "chips",
+ "spread",
+ "⁠dessicated",
+ "milk",
+ "treacle",
+ "sugar",
+ "flour",
+ "⁠vineagar",
+]

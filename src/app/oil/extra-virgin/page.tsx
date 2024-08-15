@@ -4,7 +4,7 @@ import RightTextBox from '@/components/RightTextBox';
 import { data } from '@/data/pages';
 import React from 'react'
 
-async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
+const Page: React.FC<{ searchParams: { [key: string]: string } }> = ({ searchParams }) => {
   const hash = searchParams;
 
   if(typeof window !== 'undefined') {}
@@ -22,4 +22,4 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
   )
 }
 
-export default page
+export default Page

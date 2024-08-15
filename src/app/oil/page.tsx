@@ -1,13 +1,26 @@
+"use client"
 import Background from '@/components/Background'
 import LeftContainer from '@/components/LeftContainer';
 import RightTextBox from '@/components/RightTextBox';
 import { data } from '@/data/pages';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
+const Page: React.FC<{ searchParams: { [key: string]: string } }> = ({ searchParams }) => {
   const hash = searchParams;
 
-  if(typeof window !== 'undefined') {}
+  const AnimRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (AnimRef.current) {
+      setTimeout(() => {
+        AnimRef.current.classList.add('to-normal-position');
+      }, 10); 
+    }
+    if(typeof window !== 'undefined') {
+      localStorage.setItem('lastUrl', '/treacle')
+      localStorage.setItem('lastPage', 'oil')
+    }
+  }, []);
 
   const coil_cinnamon = data?.coil_cinnamon;
 
@@ -22,4 +35,4 @@ async function page({ searchParams }: { searchParams: { [key: string]: string } 
   )
 }
 
-export default page
+export default Page

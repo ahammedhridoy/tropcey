@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, useEffect, useState } from 'react';
 
 export default function CanvasComponent() {
@@ -12,7 +13,7 @@ export default function CanvasComponent() {
     const images = [
       { src: '/images/land/L 1-02.png', x: 0, y: 0, width: 400, height: 200, zoomable: false },
       { src: '/images/land/About us Pages-03.png', x: 150, y: 50, width: 150, height: 150, url: '/vinegar', zoomable: true },
-      { src: '/images/land/About us Pages-04.png', x: 320, y: 50, width: 150, height: 150, url: '/trecale', zoomable: true },
+      { src: '/images/land/About us Pages-04.png', x: 320, y: 50, width: 150, height: 150, url: '/treacle', zoomable: true },
       { src: '/images/land/About us Pages-05.png', x: 10, y: 250, width: 150, height: 150, url: '/chips', zoomable: true },
       { src: '/images/land/About us Pages-09.png', x: 180, y: 250, width: 150, height: 150, url: '/spread', zoomable: true },
       { src: '/images/land/About us Pages-11.png', x: 340, y: 250, width: 150, height: 150, url: '/flour', zoomable: true },

@@ -1,25 +1,39 @@
+"use client"
 import Background from '@/components/Background'
 import LeftContainer from '@/components/LeftContainer';
 import RightTextBox from '@/components/RightTextBox';
 import { data } from '@/data/pages';
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-async function page({ searchParams }: { searchParams: { [key: string]: string } }) {
+const Page: React.FC<{ searchParams: { [key: string]: string } }> = ({ searchParams }) => {
   const hash = searchParams;
 
-  if(typeof window !== 'undefined') {}
+  const AnimRef = useRef<any>(null);
 
+  useEffect(() => {
+    if (AnimRef.current) {
+      setTimeout(() => {
+        AnimRef.current.classList.add('to-normal-position');
+      }, 10); 
+    }
+    if(typeof window !== 'undefined') {
+      localStorage.setItem('lastUrl', '/treacle')
+      localStorage.setItem('lastPage', 'milk')
+    }
+  }, []);
+
+  
   const chip = data?.milk;
 
   return (
     <div>
-      <Background leftSrc="/images/background/Green Chips-13.png" RightSrc="/images/background/Green Chips-14.png" />
+      <Background leftSrc={chip.background.left} RightSrc={chip.background.right} />
       <div className='relative text-white flex justify-between h-[100vh] w-[100%] items-center z-10'>
         <LeftContainer imgSrc={chip.imgUri}/>
-        <RightTextBox details={chip}/>
+        <RightTextBox details={chip} width={350}/>
       </div>
     </div>
   )
 }
 
-export default page
+export default Page
