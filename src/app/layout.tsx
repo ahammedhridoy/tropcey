@@ -1,8 +1,29 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import localfont from "next/font/local";
+import Navigation from "@/components/Navigation/Navigation";
+import Footer from "@/components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const dDin = localfont({
+  src: [
+    {
+      path: "../../public/fonts/D-DINCondensed.woff",
+    },
+  ],
+  variable: "--font-ddin",
+});
+
+const brokeline = localfont({
+  src: [
+    {
+      path: "../../public/fonts/brooklinecondensed-nrl3m.ttf",
+    },
+  ],
+  variable: "--font-brokeline",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +37,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} ${dDin.variable} ${brokeline.variable}`}
+      >
+        <header>
+          <Navigation />
+        </header>
+        {children}
+        <footer>
+          <Footer />
+        </footer>
+      </body>
     </html>
   );
 }
