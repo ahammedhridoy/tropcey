@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,11 +17,13 @@
   }
 }
 
+html,
 body {
-  color: 'black';
-  background: 'white';
+  color: "black";
+  background: "white";
+  overflow-x: hidden;
+  max-width: 100%;
 }
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -50,7 +53,6 @@ body {
   height: auto; /* Maintain aspect ratio */
 }
 
-
 .marker {
   transition: transform 0.5s ease-in-out;
 }
@@ -58,7 +60,6 @@ body {
 .marker:hover {
   transform: scale(1.2);
 }
-
 
 .marker {
   position: absolute;
@@ -90,7 +91,6 @@ body {
   width: 35%;
 }
 .landing-left img {
-
 }
 
 .come-in {
@@ -107,12 +107,10 @@ body {
   transition: transform 1s ease-in-out;
 }
 
-#canvas
-{
+#canvas {
   width: 100%;
   height: 100%;
 }
-
 
 @keyframes fadeInBlurOut {
   0% {
@@ -184,10 +182,11 @@ body {
   animation: welcome 1s ease-out;
 }
 
-.image-collection {}
+.image-collection {
+}
 .initial-zoom .end-state {
   filter: blur(10000px);
-  opacity: 0; 
+  opacity: 0;
 }
 .center-and-zoom {
   position: fixed;
@@ -280,14 +279,11 @@ body {
   animation: bigToNormal 1.5s ease-out;
 }
 
-
-
 .remove {
   display: none;
 }
 
 @layer utilities {
-  
 }
 
 .hide {
